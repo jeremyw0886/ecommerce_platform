@@ -1,0 +1,21 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <input type="hidden" name="csrfmiddlewaretoken" value="..." />
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username</label>
+      {{ form.username }}
+    </div>
+    <div class="mb-3">
+      <label for="id_password" class="form-label">Password</label>
+      {{ form.password }}
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+{% endblock %}

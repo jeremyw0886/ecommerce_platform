@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Commerce Platform</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+  {% block extra_css %}{% endblock %}
+  <!-- Script -->
+  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Externalized JavaScript files -->
+  <script src="{% static 'js/main.js' %}" defer></script>
+  <script src="{% static 'js/gallery.js' %}" defer></script>
+  <script src="{% static 'js/animations.js' %}" defer></script>
+  <script src="{% static 'js/inventory.js' %}" defer></script>
+  <script src="{% static 'js/checkout.js' %}" defer></script>
+  <script src="{% static 'js/payment.js' %}" defer></script>
+</head>
+<body>
+  <!-- Include your navbar -->
+  {% include "store/navbar.html" %}
+
+  <!-- Main content container -->
+  <div class="container my-4">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

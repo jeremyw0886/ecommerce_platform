@@ -1,0 +1,11 @@
+{% if recommended %}
+<ul>
+  {% for prod in recommended %}
+  <li>
+    <a href="{% url 'product_detail' slug=prod.slug %}">{{ prod.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No recommendations available.</p>
+{% endif %}

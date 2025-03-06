@@ -1,0 +1,48 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+  <h2>Sign Up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username</label>
+      {{ form.username }}
+    </div>
+    <div class="mb-3">
+      <label for="id_first_name" class="form-label">First Name</label>
+      {{ form.first_name }}
+    </div>
+    <div class="mb-3">
+      <label for="id_last_name" class="form-label">Last Name</label>
+      {{ form.last_name }}
+    </div>
+    <div class="mb-3">
+      <label for="id_email" class="form-label">Email</label>
+      {{ form.email }}
+    </div>
+    <div class="mb-3">
+      <label for="id_street_address" class="form-label">Street Address</label>
+      {{ form.street_address }}
+    </div>
+    <div class="mb-3">
+      <label for="id_state" class="form-label">State</label>
+      {{ form.state }}
+    </div>
+    <div class="mb-3">
+      <label for="id_zip_code" class="form-label">Zip Code</label>
+      {{ form.zip_code }}
+    </div>
+    <div class="mb-3">
+      <label for="id_password1" class="form-label">Password</label>
+      {{ form.password1 }}
+    </div>
+    <div class="mb-3">
+      <label for="id_password2" class="form-label">Confirm Password</label>
+      {{ form.password2 }}
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
+{% endblock %}

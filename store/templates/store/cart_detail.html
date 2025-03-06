@@ -1,0 +1,66 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+  <h2>Your Cart</h2>
+  {% if cart_items %}
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart_items %}
+      <tr>
+        <td>{{ item.product.name }}</td>
+        <td>${{ item.product.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.item_total }}</td>
+        <td>
+          <a href="{% url 'remove_from_cart' product_id=item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+          <a href="{% url 'save_for_later' product_id=item.product.id %}" class="btn btn-sm btn-secondary">Save for Later</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h4>Total: ${{ total }}</h4>
+  <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+  {% else %}
+  <p>Your cart is empty.</p>
+  {% endif %}
+
+  {% if saved_items %}
+  <h3 class="mt-5">Saved for Later</h3>
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in saved_items %}
+      <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          <a href="{% url 'remove_from_saved' product_id=item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+          <a href="{% url 'move_to_cart' product_id=item.product.id %}" class="btn btn-sm btn-success">Move to Cart</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <a href="{% url 'product_list' %}" class="btn btn-secondary">Continue Shopping</a>
+</div>
+{% endblock %}

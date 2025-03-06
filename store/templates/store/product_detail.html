@@ -1,0 +1,50 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="gallery-wrapper">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }} image 1" class="thumbnail active">
+        {% else %}
+        <img src="https://picsum.photos/800/400?random=1" alt="Placeholder image" class="thumbnail active">
+        {% endif %}
+        <div class="gallery-nav">
+          <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+          <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="gallery-dots"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p><strong>Price:</strong> ${{ product.price }}</p>
+      <p><strong>In Stock:</strong> {{ product.stock }}</p>
+      <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+    </div>
+  </div>
+  {% if recommended %}
+  <div class="row mt-5">
+    <h3 class="mb-3">You Might Also Like</h3>
+    {% for rec in recommended %}
+    <div class="col-md-3 mb-3">
+      <div class="card h-100">
+        {% if rec.image %}
+        <img src="{{ rec.image.url }}" class="card-img-top" alt="{{ rec.name }}">
+        {% else %}
+        <img src="https://picsum.photos/300/300?random={{ forloop.counter }}" class="card-img-top" alt="{{ rec.name }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ rec.name }}</h5>
+          <p class="card-text"><strong>${{ rec.price }}</strong></p>
+          <a href="{% url 'product_detail' slug=rec.slug %}" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

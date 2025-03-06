@@ -1,0 +1,35 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+  <h2 class="mb-4">Order Summary</h2>
+  {% if products %}
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in products %}
+      <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.product.price }}</td>
+        <td>${{ item.subtotal }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h4>Total: ${{ total }}</h4>
+  <a id="checkout-btn" href="{% url 'payment' %}" class="btn btn-primary">Proceed to Payment</a>
+  {% else %}
+  <p>Your cart is empty.</p>
+  <a href="{% url 'product_list' %}" class="btn btn-secondary">Continue Shopping</a>
+  {% endif %}
+</div>
+{% endblock %}

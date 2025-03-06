@@ -1,0 +1,10 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-4">
+  <h2>Order Confirmation</h2>
+  <p>Your order has been successfully processed!</p>
+  <p>Order ID: {{ order.id }}</p>
+  <a href="{% url 'product_list' %}" class="btn btn-primary">Continue Shopping</a>
+</div>
+{% endblock %}
