@@ -54,16 +54,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce_platform.wsgi.application'
 ASGI_APPLICATION = 'ecommerce_platform.routing.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerce_dev',
-        'USER': 'ecomuser',
-        'PASSWORD': 'ecompass123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ecommerce_dev',
+#         'USER': 'ecomuser',
+#         'PASSWORD': 'ecompass123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
