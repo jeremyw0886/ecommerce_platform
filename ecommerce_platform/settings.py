@@ -99,6 +99,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://localhost/your_db_name')
+        default=os.environ.get('DATABASE_URL', 'postgres://localhost/ecommerce_dev')
     )
 }
