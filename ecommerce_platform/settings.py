@@ -5,7 +5,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'replace-with-your-secret-key-for-development'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key-for-development')
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -54,16 +54,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce_platform.wsgi.application'
 ASGI_APPLICATION = 'ecommerce_platform.routing.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'ecommerce_dev',
-#         'USER': 'ecomuser',
-#         'PASSWORD': 'ecompass123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+# Use dj_database_url to configure the database.
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL', 'postgres://localhost/ecommerce_dev')
+    )
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
@@ -89,16 +85,9 @@ STATICFILES_DIRS = [BASE_DIR / 'store' / 'static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STRIPE_PUBLIC_KEY = 'pk_test_51Qzf5wCzL6wURVg5CWF0Tbyo8y0knBy4ZMNBs1PPbPXLxfmX9ijIOkmc4sxK7CDNIX9wxgKGIWnhPVU0mUEKaSHl00OOIckmDi'
-STRIPE_SECRET_KEY = 'sk_test_51Qzf5wCzL6wURVg5u09XZIfBhR5Xr0fwzdu6riKLM0DZI0IN7tS3RYSDeKx7KZUR0II4xGZhkPueLSNYiLGVHGAj005D048Ocr'
+STRIPE_PUBLIC_KEY = 'pk_test_...'
+STRIPE_SECRET_KEY = 'sk_test_...'
 
 CSRF_COOKIE_SECURE = False
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://localhost/ecommerce_dev')
-    )
-}
