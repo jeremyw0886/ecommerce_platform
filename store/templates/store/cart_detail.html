@@ -24,7 +24,8 @@
         <td>${{ item.item_total }}</td>
         <td>
           <a href="{% url 'remove_from_cart' product_id=item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
-          <a href="{% url 'save_for_later' product_id=item.product.id %}" class="btn btn-sm btn-secondary">Save for Later</a>
+          <a href="{% url 'save_for_later' product_id=item.product.id %}" class="btn btn-sm btn-secondary">Save for
+            Later</a>
         </td>
       </tr>
       {% endfor %}
@@ -37,30 +38,29 @@
   {% endif %}
 
   {% if saved_items %}
-  <h3 class="mt-5">Saved for Later</h3>
-  <table class="table table-bordered">
-    <thead class="table-light">
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in saved_items %}
-      <tr>
-        <td>{{ item.product.name }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>
-          <a href="{% url 'remove_from_saved' product_id=item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
-          <a href="{% url 'move_to_cart' product_id=item.product.id %}" class="btn btn-sm btn-success">Move to Cart</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <hr>
+  <h3>Saved for Later</h3>
+  <div class="row">
+    {% for saved in saved_items %}
+    <div class="col-md-3 mb-3">
+      <div class="card h-100">
+        {% if saved.product.image %}
+        <img src="{{ saved.product.image.url }}" class="card-img-top" alt="{{ saved.product.name }}">
+        {% else %}
+        <img src="https://picsum.photos/300/300?random={{ forloop.counter }}" class="card-img-top"
+          alt="{{ saved.product.name }}">
+        {% endif %}
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ saved.product.name }}</h5>
+          <p class="card-text"><strong>${{ saved.product.price }}</strong></p>
+          <!-- Actions: Adjust URLs to match your URL patterns -->
+          <a href="{% url 'move_to_cart' saved.pk %}" class="btn btn-primary btn-sm mt-auto">Move to Cart</a>
+          <a href="{% url 'remove_saved_item' saved.pk %}" class="btn btn-secondary btn-sm mt-1">Remove</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
   {% endif %}
-
-  <a href="{% url 'product_list' %}" class="btn btn-secondary">Continue Shopping</a>
 </div>
 {% endblock %}

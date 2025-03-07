@@ -8,7 +8,7 @@ from django.http import HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SignUpForm
-from .models import Category, Order, OrderItem, Product, UserProfile
+from .models import Category, Order, OrderItem, Product, SavedItem, UserProfile
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -79,7 +79,35 @@ def cart_detail(request):
             })
         except Product.DoesNotExist:
             pass
-    return render(request, 'store/cart_detail.html', {'cart_items': cart_items, 'total': total})
+    saved_items = None
+    if request.user.is_authenticated:
+        saved_items = SavedItem.objects.filter(user=request.user)
+    context = {
+        'cart_items': cart_items,
+        'total': total,
+        'saved_items': saved_items,
+    }
+    return render(request, 'store/cart_detail.html', context)
+
+
+def move_to_cart(request, saved_item_id):
+    saved_item = get_object_or_404(SavedItem, pk=saved_item_id, user=request.user)
+    product = saved_item.product
+    cart = request.session.get('cart', {})
+    product_id = str(product.id)
+    if product_id in cart:
+        cart[product_id] += 1
+    else:
+        cart[product_id] = 1
+    request.session['cart'] = cart
+    saved_item.delete()
+    return redirect('cart_detail')
+
+
+def remove_saved_item(request, saved_item_id):
+    saved_item = get_object_or_404(SavedItem, pk=saved_item_id, user=request.user)
+    saved_item.delete()
+    return redirect('cart_detail')
 
 
 def checkout(request):

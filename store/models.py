@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
 
@@ -54,3 +55,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"Profile of {self.user.username}"
+    
+class SavedItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product.name} saved by {self.user.username}"

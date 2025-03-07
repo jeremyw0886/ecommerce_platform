@@ -247,14 +247,14 @@ a:hover {
 }
 
 .row-alt {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: calc(-1* var(--bs-gutter-y));
-    margin-right: calc(-.5* var(--bs-gutter-x));
-    margin-left: calc(-.5* var(--bs-gutter-x));
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: calc(-1* var(--bs-gutter-y));
+  margin-right: calc(-.5* var(--bs-gutter-x));
+  margin-left: calc(-.5* var(--bs-gutter-x));
 }
 
 /* ==========================================================================
@@ -331,6 +331,7 @@ a:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -340,15 +341,19 @@ a:hover {
   0% {
     transform: rotate(0deg);
   }
+
   3% {
     transform: rotate(-3deg);
   }
+
   6% {
     transform: rotate(3deg);
   }
+
   9% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -358,6 +363,7 @@ a:hover {
    MEDIA QUERIES - RESPONSIVE STYLING
    ========================================================================== */
 @media (max-width: 768px) {
+
   /* Adjust thumbnail height */
   .thumbnail {
     height: 300px;
@@ -369,17 +375,52 @@ a:hover {
   }
 
   /* Responsive buttons: reduce padding & font-size */
-  a, 
-  .project-links a, 
-  .project-links button, 
-  .btn-login, 
+  a,
+  .project-links a,
+  .project-links button,
+  .btn-login,
   .btn-consistent {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
+
+  /* Ensure the navbar container is a flex container with wrapping enabled */
+  .navbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Make sure the brand appears on the first row */
+  .navbar .navbar-brand {
+    order: 1;
+    flex: 1 0 auto;
+  }
+
+  /* Place the hamburger toggler on the first row at the right */
+  .navbar-toggler {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Move the search form to a new row and make it full-width */
+  .navbar form {
+    order: 3;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  /* The rest of the collapsible nav items (if any) come afterwards */
+  .navbar .collapse.navbar-collapse {
+    margin-top: 3.5rem;
+    order: 4;
+    text-align: right;
+    width: 100%;
+  }
 }
 
 @media (max-width: 375px) {
+
   /* Further adjust thumbnail dimensions */
   .thumbnail {
     height: 150px;
@@ -387,10 +428,10 @@ a:hover {
   }
 
   /* More compact button styling for extra small devices */
-  a, 
-  .project-links a, 
-  .project-links button, 
-  .btn-login, 
+  a,
+  .project-links a,
+  .project-links button,
+  .btn-login,
   .btn-consistent {
     padding: 6px 12px;
     font-size: 0.8rem;

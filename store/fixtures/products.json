@@ -4,8 +4,10 @@
     "pk": 1,
     "fields": {
       "name": "Alpha Gadget",
+      "slug": "alpha-gadget",
       "description": "A versatile gadget with modern design and high performance. Perfect for everyday use.",
-      "price": "19.99"
+      "price": "19.99",
+      "category": 1
     }
   },
   {
@@ -13,8 +15,10 @@
     "pk": 2,
     "fields": {
       "name": "Beta Widget",
+      "slug": "beta-widget",
       "description": "A reliable widget offering exceptional value for a variety of tasks.",
-      "price": "29.99"
+      "price": "29.99",
+      "category": 1
     }
   },
   {
@@ -22,8 +26,10 @@
     "pk": 3,
     "fields": {
       "name": "Gamma Device",
+      "slug": "gamma-device",
       "description": "A cutting-edge device combining functionality and style.",
-      "price": "39.99"
+      "price": "39.99",
+      "category": 1
     }
   },
   {
@@ -31,8 +37,10 @@
     "pk": 4,
     "fields": {
       "name": "Delta Accessory",
+      "slug": "delta-accessory",
       "description": "An essential accessory designed to complement your gadgets.",
-      "price": "14.99"
+      "price": "14.99",
+      "category": 1
     }
   },
   {
@@ -40,8 +48,10 @@
     "pk": 5,
     "fields": {
       "name": "Epsilon Tool",
+      "slug": "epsilon-tool",
       "description": "A handy tool that makes your work easier and more efficient.",
-      "price": "24.99"
+      "price": "24.99",
+      "category": 1
     }
   },
   {
@@ -49,8 +59,10 @@
     "pk": 6,
     "fields": {
       "name": "Zeta Appliance",
+      "slug": "zeta-appliance",
       "description": "A modern appliance that brings convenience to your home.",
-      "price": "49.99"
+      "price": "49.99",
+      "category": 1
     }
   },
   {
@@ -58,8 +70,10 @@
     "pk": 7,
     "fields": {
       "name": "Eta Instrument",
+      "slug": "eta-instrument",
       "description": "A finely crafted instrument, perfect for both professionals and enthusiasts.",
-      "price": "59.99"
+      "price": "59.99",
+      "category": 1
     }
   },
   {
@@ -67,8 +81,10 @@
     "pk": 8,
     "fields": {
       "name": "Theta Machine",
+      "slug": "theta-machine",
       "description": "An advanced machine designed for precision and reliability.",
-      "price": "89.99"
+      "price": "89.99",
+      "category": 1
     }
   },
   {
@@ -76,8 +92,10 @@
     "pk": 9,
     "fields": {
       "name": "Iota Contraption",
+      "slug": "iota-contraption",
       "description": "A unique contraption that offers innovative solutions to everyday problems.",
-      "price": "34.99"
+      "price": "34.99",
+      "category": 1
     }
   },
   {
@@ -85,8 +103,10 @@
     "pk": 10,
     "fields": {
       "name": "Kappa Module",
+      "slug": "kapppa-module",
       "description": "A modular component that enhances the functionality of your systems.",
-      "price": "44.99"
+      "price": "44.99",
+      "category": 1
     }
   },
   {
@@ -94,8 +114,10 @@
     "pk": 11,
     "fields": {
       "name": "Lambda Component",
+      "slug": "lambda-component",
       "description": "A key component that integrates seamlessly with your setup.",
-      "price": "22.99"
+      "price": "22.99",
+      "category": 1
     }
   },
   {
@@ -103,8 +125,10 @@
     "pk": 12,
     "fields": {
       "name": "Mu Element",
+      "slug": "mu-element",
       "description": "A compact element designed for efficient performance in any device.",
-      "price": "18.99"
+      "price": "18.99",
+      "category": 1
     }
   },
   {
@@ -112,8 +136,10 @@
     "pk": 13,
     "fields": {
       "name": "Nu System",
+      "slug": "nu-system",
       "description": "A comprehensive system offering advanced features and reliability.",
-      "price": "99.99"
+      "price": "99.99",
+      "category": 1
     }
   },
   {
@@ -121,8 +147,10 @@
     "pk": 14,
     "fields": {
       "name": "Xi Apparatus",
+      "slug": "xi-apparatus",
       "description": "A robust apparatus built for demanding tasks and long-term use.",
-      "price": "74.99"
+      "price": "74.99",
+      "category": 1
     }
   },
   {
@@ -130,8 +158,10 @@
     "pk": 15,
     "fields": {
       "name": "Omicron Gear",
+      "slug": "omnicron-gear",
       "description": "High-quality gear that ensures optimal performance and durability.",
-      "price": "54.99"
+      "price": "54.99",
+      "category": 1
     }
   },
   {
@@ -139,8 +169,10 @@
     "pk": 16,
     "fields": {
       "name": "Pi Equipment",
+      "slug": "pi-equipment",
       "description": "Essential equipment designed to meet your professional needs.",
-      "price": "64.99"
+      "price": "64.99",
+      "category": 1
     }
   },
   {
@@ -148,8 +180,10 @@
     "pk": 17,
     "fields": {
       "name": "Rho Mechanism",
+      "slug": "rho-mechanism",
       "description": "A precise mechanism that powers your devices with efficiency.",
-      "price": "79.99"
+      "price": "79.99",
+      "category": 1
     }
   },
   {
@@ -157,8 +191,10 @@
     "pk": 18,
     "fields": {
       "name": "Sigma Device",
+      "slug": "sigma-device",
       "description": "A high-performance device designed for both work and play.",
-      "price": "84.99"
+      "price": "84.99",
+      "category": 1
     }
   },
   {
@@ -166,8 +202,10 @@
     "pk": 19,
     "fields": {
       "name": "Tau Widget",
+      "slug": "tau-widget",
       "description": "An innovative widget that streamlines your daily tasks.",
-      "price": "26.99"
+      "price": "26.99",
+      "category": 1
     }
   },
   {
@@ -175,8 +213,10 @@
     "pk": 20,
     "fields": {
       "name": "Upsilon Gadget",
+      "slug": "upsilon-gadget",
       "description": "A state-of-the-art gadget that offers a blend of style and functionality.",
-      "price": "31.99"
+      "price": "31.99",
+      "category": 1
     }
   }
 ]

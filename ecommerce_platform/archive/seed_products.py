@@ -1,3 +1,6 @@
+# Used for seeding the database with fake products. This is useful for testing purposes. The command creates a category named Electronics and then creates 10 fake products under that category. The products have random names, descriptions, prices, stock, and availability. The image field is set to a placeholder image. The command can be run using the following command:
+
+
 import random
 
 from django.core.management.base import BaseCommand
