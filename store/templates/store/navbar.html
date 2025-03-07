@@ -1,39 +1,41 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'product_list' %}">E-Commerce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'product_list' %}">Products</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          {% if user.is_authenticated %}
-          <form id="logout-form" method="post" action="{% url 'logout' %}" class="logout-form">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'product_list' %}">E-Commerce</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'product_list' %}">Products</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <form id="logout-form" method="post" action="{% url 'logout' %}">
             {% csrf_token %}
-            <button type="submit" class="logout-button nav-link btn btn-link">Logout</button>
+            <button type="submit" class="nav-link btn btn-link">Logout</button>
           </form>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-          </li>
-          {% endif %}
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cart_detail' %}">
-              <i class="fas fa-shopping-cart"></i> Cart
-              {% if cart_item_count %}
-              <span class="badge bg-primary">{{ cart_item_count }}</span>
-              {% endif %}
-            </a>
-          </li>
-        </ul>
-      </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cart_detail' %}">
+            <i class="fas fa-shopping-cart"></i> Cart
+            {% if cart_item_count %}
+            <span class="badge bg-primary">{{ cart_item_count }}</span>
+            {% endif %}
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

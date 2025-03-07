@@ -1,10 +1,19 @@
-/* gallery.css */
+/* ==========================================================================
+   GALLERY CSS
+   ========================================================================== */
+
+/* --------------------------------------
+   CSS VARIABLES
+-------------------------------------- */
 :root {
   --transition-speed: 0.3s;
   --nav-bg: rgba(0, 0, 0, 0.5);
   --nav-bg-hover: rgba(0, 0, 0, 0.8);
 }
 
+/* --------------------------------------
+   GALLERY WRAPPER & IMAGES
+-------------------------------------- */
 .gallery-wrapper {
   height: 400px;
   overflow: hidden;
@@ -25,6 +34,9 @@
   opacity: 1;
 }
 
+/* --------------------------------------
+   GALLERY NAVIGATION
+-------------------------------------- */
 .gallery-nav {
   display: flex;
   justify-content: space-between;
@@ -32,6 +44,8 @@
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
+  padding: 0 15px;  /* Added padding to prevent buttons from hitting the edges */
+  box-sizing: border-box;
   z-index: 10;
 }
 
@@ -49,6 +63,9 @@
   background: var(--nav-bg-hover);
 }
 
+/* --------------------------------------
+   GALLERY DOTS NAVIGATION
+-------------------------------------- */
 .gallery-dots {
   bottom: 15px;
   display: flex;
@@ -70,4 +87,67 @@
 
 .dot.active {
   background: white;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Medium screens (max-width: 992px) */
+@media (max-width: 992px) {
+  .gallery-nav button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .gallery-wrapper {
+    height: 300px;
+  }
+  
+  .gallery-nav button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .gallery-dots {
+    gap: 6px;
+    bottom: 10px;
+  }
+  
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .gallery-wrapper {
+    height: 250px;
+  }
+  
+  .gallery-nav button {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+  
+  .gallery-dots {
+    gap: 4px;
+    bottom: 8px;
+  }
+  
+  .dot {
+    height: 6px;
+    width: 6px;
+  }
 }

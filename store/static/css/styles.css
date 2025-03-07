@@ -1,4 +1,6 @@
-/* styles.css */
+/* ==========================================================================
+   GLOBAL SETTINGS & VARIABLES
+   ========================================================================== */
 :root {
   --primary-color: #0073aa;
   --secondary-color: #e9ecef;
@@ -8,6 +10,9 @@
   --transition-speed: 0.3s;
 }
 
+/* ==========================================================================
+   GLOBAL ELEMENT STYLES
+   ========================================================================== */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -30,6 +35,9 @@ p {
   margin-bottom: 1rem;
 }
 
+/* ----------------------------------------------------------------------------
+   Anchor & Button Base Styling
+   ---------------------------------------------------------------------------- */
 a {
   border-radius: 5px;
   color: #fff;
@@ -43,7 +51,9 @@ a:hover {
   background: #005f8a;
 }
 
-/* Project showcase styles */
+/* ==========================================================================
+   PROJECT SHOWCASE SECTION
+   ========================================================================== */
 .project-showcase {
   background: linear-gradient(to right, var(--bg-color), var(--secondary-color));
   display: grid;
@@ -95,6 +105,9 @@ a:hover {
   transition: opacity var(--transition-speed);
 }
 
+/* ==========================================================================
+   TECH STACK & PROJECT DETAILS
+   ========================================================================== */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
@@ -132,7 +145,9 @@ a:hover {
   position: absolute;
 }
 
-/* Project links */
+/* ==========================================================================
+   PROJECT LINKS & BUTTONS
+   ========================================================================== */
 .project-links {
   display: flex;
   gap: 15px;
@@ -150,6 +165,7 @@ a:hover {
   transition: background var(--transition-speed);
 }
 
+/* Button Variants */
 .live-demo {
   background: var(--primary-color);
   border: none;
@@ -167,7 +183,9 @@ a:hover {
   color: var(--primary-color);
 }
 
-/* Modal styling */
+/* ==========================================================================
+   MODAL STYLING
+   ========================================================================== */
 .modal {
   background: rgba(0, 0, 0, 0.5);
   display: none;
@@ -201,7 +219,10 @@ a:hover {
   top: 10px;
 }
 
-.my-card {
+/* ==========================================================================
+   CARD COMPONENTS
+   ========================================================================== */
+.card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -211,6 +232,10 @@ a:hover {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background-color: #fff;
+  max-width: 40%;
+  padding: 0;
+  gap: 1rem;
 }
 
 .my-card-body .bottom-button {
@@ -221,10 +246,20 @@ a:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.my-card-body {
-  background-color: #fff;
+.row-alt {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
 }
 
+/* ==========================================================================
+   LOGIN & LOGOUT BUTTONS
+   ========================================================================== */
 .btn-login {
   background-color: #007bff;
   border: none;
@@ -239,28 +274,41 @@ a:hover {
   background-color: #0056b3;
 }
 
-/* Make both buttons take equal available space and shrink with the container */
+/* Consistent button styling */
 .btn-consistent {
-  flex: 1 1 auto;  /* grow, shrink, auto basis */
+  flex: 1 1 auto;
   text-align: center;
   white-space: nowrap;
 }
 
-/* Optional: ensure consistent padding */
+/* Optional: ensure consistent padding on small buttons */
 .btn-consistent.btn-sm {
   padding: 0.375rem 0.75rem;
 }
 
+/* Shaking effect for special buttons */
 .btn-shake {
   animation: shake 7s infinite;
 }
 
-/* Logout form styling */
+.d-flex {
+  display: flex;
+  flex-shrink: 1;
+}
+
+.btn-consistent {
+  flex: 1 1 auto;
+  text-align: center;
+  white-space: wrap;
+}
+
+/* ==========================================================================
+   LOGOUT FORM & BUTTON
+   ========================================================================== */
 .logout-form {
   display: inline;
 }
 
-/* Logout button styling */
 .logout-button {
   display: inline;
   padding: 0;
@@ -268,21 +316,21 @@ a:hover {
   background: none;
   border: none;
   cursor: pointer;
-  /* Optional: add any hover effects */
 }
 
-/* Optionally, if you want to mimic nav-link styling: */
+/* Mimic nav-link styling if needed */
 .logout-button.nav-link {
   color: inherit;
   text-decoration: none;
 }
 
-
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -306,20 +354,45 @@ a:hover {
   }
 }
 
-/* Media queries */
+/* ==========================================================================
+   MEDIA QUERIES - RESPONSIVE STYLING
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Adjust thumbnail height */
   .thumbnail {
     height: 300px;
   }
 
+  /* Reduce padding in project details */
   .project-details {
     padding: 1rem;
+  }
+
+  /* Responsive buttons: reduce padding & font-size */
+  a, 
+  .project-links a, 
+  .project-links button, 
+  .btn-login, 
+  .btn-consistent {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 375px) {
+  /* Further adjust thumbnail dimensions */
   .thumbnail {
     height: 150px;
     width: 300px;
+  }
+
+  /* More compact button styling for extra small devices */
+  a, 
+  .project-links a, 
+  .project-links button, 
+  .btn-login, 
+  .btn-consistent {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }

@@ -26,10 +26,10 @@
     </div>
   </div>
   {% if recommended %}
-  <div class="row mt-5">
+  <div class="row-alt row mt-5">
     <h3 class="mb-3">You Might Also Like</h3>
     {% for rec in recommended %}
-    <div class="col-md-3 mb-3">
+    <div class="my-card-body mb-3">
       <div class="card h-100">
         {% if rec.image %}
         <img src="{{ rec.image.url }}" class="card-img-top" alt="{{ rec.name }}">

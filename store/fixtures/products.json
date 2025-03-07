@@ -1,0 +1,182 @@
+[
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Alpha Gadget",
+      "description": "A versatile gadget with modern design and high performance. Perfect for everyday use.",
+      "price": "19.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "name": "Beta Widget",
+      "description": "A reliable widget offering exceptional value for a variety of tasks.",
+      "price": "29.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "name": "Gamma Device",
+      "description": "A cutting-edge device combining functionality and style.",
+      "price": "39.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "name": "Delta Accessory",
+      "description": "An essential accessory designed to complement your gadgets.",
+      "price": "14.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "name": "Epsilon Tool",
+      "description": "A handy tool that makes your work easier and more efficient.",
+      "price": "24.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "name": "Zeta Appliance",
+      "description": "A modern appliance that brings convenience to your home.",
+      "price": "49.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+      "name": "Eta Instrument",
+      "description": "A finely crafted instrument, perfect for both professionals and enthusiasts.",
+      "price": "59.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+      "name": "Theta Machine",
+      "description": "An advanced machine designed for precision and reliability.",
+      "price": "89.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 9,
+    "fields": {
+      "name": "Iota Contraption",
+      "description": "A unique contraption that offers innovative solutions to everyday problems.",
+      "price": "34.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 10,
+    "fields": {
+      "name": "Kappa Module",
+      "description": "A modular component that enhances the functionality of your systems.",
+      "price": "44.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 11,
+    "fields": {
+      "name": "Lambda Component",
+      "description": "A key component that integrates seamlessly with your setup.",
+      "price": "22.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 12,
+    "fields": {
+      "name": "Mu Element",
+      "description": "A compact element designed for efficient performance in any device.",
+      "price": "18.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 13,
+    "fields": {
+      "name": "Nu System",
+      "description": "A comprehensive system offering advanced features and reliability.",
+      "price": "99.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 14,
+    "fields": {
+      "name": "Xi Apparatus",
+      "description": "A robust apparatus built for demanding tasks and long-term use.",
+      "price": "74.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 15,
+    "fields": {
+      "name": "Omicron Gear",
+      "description": "High-quality gear that ensures optimal performance and durability.",
+      "price": "54.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 16,
+    "fields": {
+      "name": "Pi Equipment",
+      "description": "Essential equipment designed to meet your professional needs.",
+      "price": "64.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 17,
+    "fields": {
+      "name": "Rho Mechanism",
+      "description": "A precise mechanism that powers your devices with efficiency.",
+      "price": "79.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 18,
+    "fields": {
+      "name": "Sigma Device",
+      "description": "A high-performance device designed for both work and play.",
+      "price": "84.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 19,
+    "fields": {
+      "name": "Tau Widget",
+      "description": "An innovative widget that streamlines your daily tasks.",
+      "price": "26.99"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 20,
+    "fields": {
+      "name": "Upsilon Gadget",
+      "description": "A state-of-the-art gadget that offers a blend of style and functionality.",
+      "price": "31.99"
+    }
+  }
+]
