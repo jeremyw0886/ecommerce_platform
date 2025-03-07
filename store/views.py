@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import SignUpForm
+from .forms import SignUpForm, UserProfileForm
 from .models import Category, Order, OrderItem, Product, SavedItem, UserProfile
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -52,14 +52,14 @@ def remove_from_cart(request, product_id):
 
 
 def save_for_later(request, product_id):
-    cart = request.session.get('cart', {})
-    saved_items = request.session.get('saved_items', {})
-    product_key = str(product_id)
-    if product_key in cart:
-        quantity = cart.pop(product_key)
-        saved_items[product_key] = saved_items.get(product_key, 0) + quantity
-        request.session['cart'] = cart
-        request.session['saved_items'] = saved_items
+    if request.user.is_authenticated:
+        product = get_object_or_404(Product, pk=product_id)
+        SavedItem.objects.get_or_create(user=request.user, product=product)
+        cart = request.session.get('cart', {})
+        product_key = str(product_id)
+        if product_key in cart:
+            del cart[product_key]
+            request.session['cart'] = cart
     return redirect('cart_detail')
 
 
@@ -104,6 +104,26 @@ def move_to_cart(request, saved_item_id):
     return redirect('cart_detail')
 
 
+def update_cart(request, product_id):
+    if request.method == "POST":
+        try:
+            new_quantity = int(request.POST.get("quantity", 1))
+        except ValueError:
+            new_quantity = 1  # default quantity if conversion fails
+
+        cart = request.session.get("cart", {})
+        product_key = str(product_id)
+        
+        if new_quantity > 0:
+            cart[product_key] = new_quantity
+        else:
+            # Remove product if quantity is zero or less
+            if product_key in cart:
+                del cart[product_key]
+        request.session["cart"] = cart
+    return redirect("cart_detail")
+
+
 def remove_saved_item(request, saved_item_id):
     saved_item = get_object_or_404(SavedItem, pk=saved_item_id, user=request.user)
     saved_item.delete()
@@ -116,8 +136,13 @@ def checkout(request):
     products = []
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, id=product_id)
+        item_total = product.price * quantity
         total += product.price * quantity
-        products.append({'product': product, 'quantity': quantity})
+        products.append({
+            'product': product, 
+            'quantity': quantity,
+            'subtotal': item_total
+        })
     # Calculate tax (8.5%) on the total (in dollars)
     tax = (total * Decimal('0.085')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
     grand_total = total + tax
@@ -192,3 +217,16 @@ def custom_logout(request):
         logout(request)
         return redirect('product_list')
     return HttpResponseNotAllowed(['POST'])
+
+
+@login_required
+def edit_profile(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = UserProfileForm(instance=profile)
+    return render(request, 'store/edit_profile.html', {'form': form})

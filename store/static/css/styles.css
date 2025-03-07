@@ -184,6 +184,17 @@ a:hover {
 }
 
 /* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.my-profile {
+  padding-top: .1rem;
+}
+
+.logout {
+  padding-bottom: .2rem;
+}
+
+/* ==========================================================================
    MODAL STYLING
    ========================================================================== */
 .modal {
@@ -325,6 +336,46 @@ a:hover {
 }
 
 /* ==========================================================================
+   SAVED FOR LATER BUTTONS
+   ========================================================================== */
+
+.saved-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.saved-btns a {
+  color: #fff;
+  flex: 1;
+}
+
+.saved-btns a:first-of-type:not(.btn-danger) {
+  background-color: #047a92;
+  border-color: #047a92;
+}
+
+.saved-btns a:first-of-type:hover:not(.btn-danger) {
+  background-color: #086a7e;
+  border-color: #086a7e;
+  color: #fff;
+}
+
+/* ==========================================================================
+   STRIPE PAYMENT FORM
+   ========================================================================== */
+#card-element {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+
+
+/* ==========================================================================
    ANIMATIONS
    ========================================================================== */
 @keyframes fadeIn {
@@ -362,6 +413,12 @@ a:hover {
 /* ==========================================================================
    MEDIA QUERIES - RESPONSIVE STYLING
    ========================================================================== */
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
 
   /* Adjust thumbnail height */
@@ -416,6 +473,11 @@ a:hover {
     order: 4;
     text-align: right;
     width: 100%;
+  }
+
+  .saved-btns a.btn {
+    margin-bottom: 0;
+    padding: 1rem;
   }
 }
 

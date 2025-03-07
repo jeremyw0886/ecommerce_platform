@@ -1,5 +1,6 @@
 {% extends "store/base.html" %}
 {% load static %}
+
 {% block content %}
 <div class="container my-4">
   <h2>Billing Information</h2>
@@ -8,23 +9,19 @@
     <div class="mb-3">
       <label for="id_street_address" class="form-label">Street Address</label>
       <input type="text" id="id_street_address" name="street_address" class="form-control"
-        value="{{ request.user.userprofile.street_address|default:'' }}">
+             value="{{ request.user.userprofile.street_address|default:'' }}">
     </div>
     <div class="mb-3">
       <label for="id_state" class="form-label">State</label>
       <input type="text" id="id_state" name="state" class="form-control"
-        value="{{ request.user.userprofile.state|default:'' }}">
+             value="{{ request.user.userprofile.state|default:'' }}">
     </div>
     <div class="mb-3">
       <label for="id_zip_code" class="form-label">Zip Code</label>
       <input type="text" id="id_zip_code" name="zip_code" class="form-control"
-        value="{{ request.user.userprofile.zip_code|default:'' }}">
+             value="{{ request.user.userprofile.zip_code|default:'' }}">
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" id="same-as-mailing" class="form-check-input">
-      <label for="same-as-mailing" class="form-check-label">Same as mailing address</label>
-    </div>
-    <!-- Payment details -->
+    <!-- Stripe Card Element Container -->
     <div id="card-element" class="mb-3">
       <!-- Stripe Card Element will be mounted here -->
     </div>
@@ -35,18 +32,16 @@
 {% endblock %}
 
 {% block extra_js %}
+<!-- Load Stripe.js -->
 <script src="https://js.stripe.com/v3/"></script>
+<!-- Pass Payment Data to JS -->
 <script>
-  window.userMailingAddress = {
-    street_address: "{{ request.user.userprofile.street_address|escapejs }}",
-    state: "{{ request.user.userprofile.state|escapejs }}",
-    zip_code: "{{ request.user.userprofile.zip_code|escapejs }}"
-  };
   window.paymentData = {
     clientSecret: "{{ client_secret }}",
     stripePublicKey: "{{ STRIPE_PUBLIC_KEY }}"
   };
   console.log("Payment Data:", window.paymentData);
 </script>
+<!-- External Payment Script (includes billing address logic and Stripe integration) -->
 <script src="{% static 'js/payment.js' %}" defer></script>
 {% endblock %}

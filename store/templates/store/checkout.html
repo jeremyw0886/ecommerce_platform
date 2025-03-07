@@ -25,7 +25,7 @@
       {% endfor %}
     </tbody>
   </table>
-  <h4>Total: ${{ total }}</h4>
+  <h4>Total with Tax: ${{ grand_total }}</h4>
   <a id="checkout-btn" href="{% url 'payment' %}" class="btn btn-primary">Proceed to Payment</a>
   {% else %}
   <p>Your cart is empty.</p>

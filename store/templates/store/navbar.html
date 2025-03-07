@@ -2,7 +2,8 @@
   <div class="container">
     <a class="navbar-brand" href="{% url 'product_list' %}">E-Commerce</a>
     <form class="d-flex flex-grow-1 flex-sm-grow-0 ms-3" action="{% url 'search' %}" method="get">
-      <input class="form-control me-2 w-100 w-sm-auto" type="search" placeholder="Search Products" aria-label="Search" name="q">
+      <input class="form-control me-2 w-100 w-sm-auto" type="search" placeholder="Search Products" aria-label="Search"
+        name="q">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -17,10 +18,13 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
+        <li class="nav-item my-profile">
+          <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+        </li>
         <li class="nav-item">
           <form id="logout-form" method="post" action="{% url 'logout' %}">
             {% csrf_token %}
-            <button type="submit" class="nav-link btn btn-link">Logout</button>
+            <button type="submit" class="nav-link btn btn-link logout">Logout</button>
           </form>
         </li>
         {% else %}

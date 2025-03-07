@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container my-5">
-  <h2>Profile</h2>
+  <h2>My Profile</h2>
   <table class="table">
     <tr>
       <th>Username</th>
@@ -24,9 +24,25 @@
       <th>Date Joined</th>
       <td>{{ request.user.date_joined|date:"F j, Y" }}</td>
     </tr>
+    {% if request.user.userprofile %}
+    <tr>
+      <th>Street Address</th>
+      <td>{{ request.user.userprofile.street_address }}</td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td>{{ request.user.userprofile.state }}</td>
+    </tr>
+    <tr>
+      <th>Zip Code</th>
+      <td>{{ request.user.userprofile.zip_code }}</td>
+    </tr>
+    {% endif %}
   </table>
   <div class="text-center">
-    <a href="{% url 'password_change' %}" class="btn btn-primary">Change Password</a>
+    <!-- Link to the edit profile view -->
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary me-2">Edit Profile</a>
+    <a href="{% url 'password_change' %}" class="btn btn-secondary">Change Password</a>
   </div>
 </div>
 {% endblock %}
