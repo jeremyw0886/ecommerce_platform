@@ -413,6 +413,16 @@ a:hover {
 /* ==========================================================================
    MEDIA QUERIES - RESPONSIVE STYLING
    ========================================================================== */
+@media (max-width: 992px) {
+  .navbar-nav {
+    justify-content: end;
+  }
+
+  .nav-item:first-of-type {
+    margin-top: 3.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 100%;
