@@ -467,9 +467,8 @@ a:hover {
     font-size: 0.9rem;
   }
 
-  nav {
-    margin: 0 auto;
-    padding: 1rem;
+  .navbar {
+    padding: 0 1rem 0 0;
   }
 
   /* Ensure the navbar container is a flex container with wrapping enabled */
@@ -516,6 +515,10 @@ a:hover {
   .logout {
     display: flex;
     justify-content: end;
+  }
+
+  #navbarSupprotedContent {
+    margin-right: 1rem;
   }
 }
 
