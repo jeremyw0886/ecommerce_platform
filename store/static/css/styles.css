@@ -418,13 +418,9 @@ a:hover {
     align-items: end;
   }
 
-  .nav-item:first-of-type:not(.my-profile) {
-    margin-top: 3.5rem;
+  #navbarSupportedContent:first-child {
+    margin-bottom: 0;
   }
-
-.navbar-collapse:first-child {
-  margin-bottom: 0;
-}
 
 }
 
@@ -506,7 +502,7 @@ a:hover {
     padding: 1rem;
   }
 
-   .logout {
+  .logout {
     display: flex;
     justify-content: end;
   }
