@@ -478,6 +478,7 @@ a:hover {
   .navbar .navbar-brand {
     order: 1;
     flex: 1 0 auto;
+    margin-right: 0;
   }
 
   /* Place the hamburger toggler on the first row at the right */
@@ -489,7 +490,7 @@ a:hover {
   /* Move the search form to a new row and make it full-width */
   .navbar form {
     order: 3;
-    width: 100%;
+    width: 93%;
     margin-top: 2rem;
   }
 
