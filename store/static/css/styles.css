@@ -417,6 +417,17 @@ a:hover {
   .container {
     max-width: 100%;
   }
+
+  .navbar .collapse.navbar-collapse {
+    margin-top: 3.5rem;
+    order: 4;
+    text-align: right;
+    width: 100%;
+  }
+
+  .logout {
+    text-align: right;
+  }
 }
 
 @media (max-width: 768px) {
@@ -473,6 +484,10 @@ a:hover {
     order: 4;
     text-align: right;
     width: 100%;
+  }
+
+  .logout {
+    text-align: right;
   }
 
   .saved-btns a.btn {
