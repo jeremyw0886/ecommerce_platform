@@ -415,10 +415,10 @@ a:hover {
    ========================================================================== */
 @media (max-width: 992px) {
   .navbar-nav {
-    justify-content: end;
+    align-items: end;
   }
 
-  .nav-item:first-of-type {
+  .nav-item:first-of-type:not(.my-profile) {
     margin-top: 3.5rem;
   }
 }
