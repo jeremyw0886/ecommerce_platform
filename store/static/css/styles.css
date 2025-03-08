@@ -467,6 +467,10 @@ a:hover {
     font-size: 0.9rem;
   }
 
+  .navbar {
+    margin: 0 auto;
+  }
+
   /* Ensure the navbar container is a flex container with wrapping enabled */
   .navbar .container {
     display: flex;
