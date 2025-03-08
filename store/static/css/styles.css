@@ -512,6 +512,13 @@ a:hover {
   }
 }
 
+@media (max-width: 576px) {
+  .container,
+  .container-sm {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 375px) {
 
   /* Further adjust thumbnail dimensions */
