@@ -21,11 +21,13 @@
         <li class="nav-item my-profile">
           <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
         </li>
-        <li class="nav-item logout">
-          <form id="logout-form" method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="nav-link btn btn-link">Logout</button>
-          </form>
+        <li class="nav-item ">
+          <div class="logout">
+            <form id="logout-form" method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="nav-link btn btn-link">Logout</button>
+            </form>
+          </div>
         </li>
         {% else %}
         <li class="nav-item">

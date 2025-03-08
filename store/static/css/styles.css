@@ -426,6 +426,7 @@ a:hover {
   }
 
   .logout {
+    display: flex;
     text-align: right;
   }
 }
