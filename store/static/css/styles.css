@@ -490,8 +490,9 @@ a:hover {
   /* Move the search form to a new row and make it full-width */
   .navbar form {
     order: 3;
-    width: 93%;
+    max-width: 768px;
     margin-top: 2rem;
+    width: 100%;
   }
 
   /* The rest of the collapsible nav items (if any) come afterwards */
@@ -516,7 +517,7 @@ a:hover {
 @media (max-width: 576px) {
   .container,
   .container-sm {
-    max-width: 100%;
+    max-width: 576px;
   }
 }
 
