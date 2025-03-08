@@ -422,7 +422,7 @@ a:hover {
     margin-top: 3.5rem;
   }
 
-.nav-item:first-child {
+.navbar-collapse:first-child {
   margin-bottom: 0;
 }
 
