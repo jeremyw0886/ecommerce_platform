@@ -486,6 +486,10 @@ a:hover {
     width: 100%;
   }
 
+  .links {
+    text-align: right;
+  }
+
   .logout {
     text-align: right;
   }
