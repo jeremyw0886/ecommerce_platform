@@ -425,7 +425,7 @@ a:hover {
     width: 100%;
   }
 
-  #logout-form {
+  .logout {
     text-align: right;
   }
 }
@@ -490,7 +490,7 @@ a:hover {
     text-align: right;
   }
 
-  #logout-form {
+  .logout {
     text-align: right;
   }
 
